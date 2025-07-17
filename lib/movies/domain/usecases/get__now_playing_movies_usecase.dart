@@ -1,12 +1,15 @@
-import 'package:movies_clean_arch/movies/domain/entites/movie.dart';
-import 'package:movies_clean_arch/movies/domain/repository/base_movie_repo.dart';
+import 'package:dartz/dartz.dart';
+import 'package:movies_clean_arch/movies/domain/entities/movie.dart';
+import 'package:movies_clean_arch/movies/domain/repository/base_movie_repository.dart';
+
+import '../../../core/error/failure.dart';
 
 class GetNowPlayingMoviesUseCase {
-  final BaseMoviesRepo baseMoviesRepo;
+  final BaseMoviesRepository baseMoviesRepo;
 
   GetNowPlayingMoviesUseCase(this.baseMoviesRepo);
 
-  Future<List<Movie>> execute() async {
-    return await baseMoviesRepo.getNowPlaying();
+  Future<Either<Failure, List<Movie>>> execute() async {
+    return await baseMoviesRepo.getNowPlayingMovies();
   }
 }
