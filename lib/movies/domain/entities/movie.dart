@@ -6,8 +6,8 @@ class Movie extends Equatable {
   final String backdropPath;
   final List<int> genreIds;
   final String overview;
-  final double voteAverage;
-  final double releaseDate;
+  final num voteAverage;
+  final String releaseDate;
 
   const Movie({
     required this.id,

@@ -16,6 +16,7 @@ class MovieRemoteDataSource implements BaseMovieRemoteDataSource {
   @override
   Future<List<MoviesModel>> getNowPlayingMovies() async {
     final response = await Dio().get(ApiConstance.nowPlayingMoviesPath);
+
     if (response.statusCode == 200) {
       return List<MoviesModel>.from(
         (response.data['results'] as List).map((e) => MoviesModel.formJson(e)),
