@@ -3,6 +3,7 @@ import 'package:movies_clean_arch/movies/data/datasource/movie_remote_data_sourc
 import 'package:movies_clean_arch/movies/data/repository/movies_repository.dart';
 import 'package:movies_clean_arch/movies/domain/repository/base_movie_repository.dart';
 import 'package:movies_clean_arch/movies/domain/usecases/get__now_playing_movies_usecase.dart';
+import 'package:movies_clean_arch/movies/presentation/controller/movies_bloc.dart';
 
 final serviceLocator = GetIt.instance;
 
@@ -18,6 +19,9 @@ class ServicesLocator {
       () => GetNowPlayingMoviesUseCase(
         serviceLocator.get<BaseMoviesRepository>(),
       ),
+    );
+    serviceLocator.registerLazySingleton<MoviesBloc>(
+      () => MoviesBloc(serviceLocator()),
     );
   }
 }
