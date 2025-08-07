@@ -11,7 +11,7 @@ class TopRatedComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  FadeIn(
+    return FadeIn(
       duration: const Duration(milliseconds: 500),
       child: SizedBox(
         height: 170.0,
@@ -29,29 +29,26 @@ class TopRatedComponent extends StatelessWidget {
                   /// TODO : NAVIGATE TO  MOVIE DETAILS
                 },
                 child: ClipRRect(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(8.0),
-                  ),
+                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                   child: CachedNetworkImage(
                     width: 120.0,
                     fit: BoxFit.cover,
                     imageUrl: ApiConstance.imageUrl(movie.backdropPath),
                     placeholder:
                         (context, url) => Shimmer.fromColors(
-                      baseColor: Colors.grey[850]!,
-                      highlightColor: Colors.grey[800]!,
-                      child: Container(
-                        height: 170.0,
-                        width: 120.0,
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.circular(8.0),
+                          baseColor: Colors.grey[850]!,
+                          highlightColor: Colors.grey[800]!,
+                          child: Container(
+                            height: 170.0,
+                            width: 120.0,
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
                     errorWidget:
-                        (context, url, error) =>
-                    const Icon(Icons.error),
+                        (context, url, error) => const Icon(Icons.error),
                   ),
                 ),
               ),
