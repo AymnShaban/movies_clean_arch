@@ -9,6 +9,6 @@ abstract class MoviesEvent extends Equatable {
 
 class GetNowPlayingMoviesEvent extends MoviesEvent {}
 
-class GetNowPopularMoviesEvent extends MoviesEvent {}
+class GetPopularMoviesEvent extends MoviesEvent {}
 
-class GetNowTopRatedMoviesEvent extends MoviesEvent {}
+class GetTopRatedMoviesEvent extends MoviesEvent {}

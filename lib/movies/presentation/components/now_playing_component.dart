@@ -15,7 +15,12 @@ class NowPlayingComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MoviesBloc, MoviesState>(
+
+      buildWhen:
+          (previous, current) =>
+              previous.nowPlayingState != current.nowPlayingState,
       builder: (context, state) {
+        print('BlocBuilder NowPlayingComponent ');
         switch (state.nowPlayingState) {
           case RequestState.loading:
             return SizedBox(
@@ -102,7 +107,10 @@ class NowPlayingComponent extends StatelessWidget {
                                     child: Text(
                                       item.title,
                                       textAlign: TextAlign.center,
-                                      style: const TextStyle(fontSize: 24),
+                                      style: const TextStyle(
+                                        fontSize: 24,
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ),
                                 ],

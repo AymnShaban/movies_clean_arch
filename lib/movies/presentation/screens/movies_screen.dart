@@ -16,9 +16,10 @@ class MainMoviesScreen extends StatelessWidget {
     return BlocProvider(
       create:
           (context) =>
-              serviceLocator<MoviesBloc>()
+              sl<MoviesBloc>()
                 ..add(GetNowPlayingMoviesEvent())
-                ..add(GetNowPopularMoviesEvent()),
+                ..add(GetPopularMoviesEvent())
+                ..add(GetTopRatedMoviesEvent()),
       child: Scaffold(
         backgroundColor: Colors.grey.shade900,
         body: SingleChildScrollView(
@@ -38,6 +39,7 @@ class MainMoviesScreen extends StatelessWidget {
                         fontSize: 19,
                         fontWeight: FontWeight.w500,
                         letterSpacing: 0.15,
+                        color: Colors.white
                       ),
                     ),
                     InkWell(
@@ -48,7 +50,9 @@ class MainMoviesScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
                           children: const [
-                            Text('See More'),
+                            Text('See More',style: TextStyle(
+                              color: Colors.white
+                            ),),
                             Icon(Icons.arrow_forward_ios, size: 16.0),
                           ],
                         ),
@@ -69,6 +73,7 @@ class MainMoviesScreen extends StatelessWidget {
                         fontSize: 19,
                         fontWeight: FontWeight.w500,
                         letterSpacing: 0.15,
+                        color: Colors.white
                       ),
                     ),
                     InkWell(
@@ -79,7 +84,9 @@ class MainMoviesScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
                           children: const [
-                            Text('See More'),
+                            Text('See More',style: TextStyle(
+                                color: Colors.white
+                            )),
                             Icon(Icons.arrow_forward_ios, size: 16.0),
                           ],
                         ),
